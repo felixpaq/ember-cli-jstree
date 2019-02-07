@@ -244,6 +244,20 @@ export default Mixin.create({
       }
     },
 
+    enableNode(obj, suppress_event) {
+      let treeObject = this.get("treeObject");
+      if (!isNone(treeObject)) {
+        treeObject.jstree(true).enable_node(obj, suppress_event);
+      }
+    },
+
+    disableNode(obj, suppress_event) {
+      let treeObject = this.get("treeObject");
+      if (!isNone(treeObject)) {
+        treeObject.jstree(true).disable_node(obj, suppress_event);
+      }
+    },
+
     selectNode(obj, suppress_event) {
       let treeObject = this.get("treeObject");
       if (!isNone(treeObject)) {
