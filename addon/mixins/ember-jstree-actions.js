@@ -258,6 +258,24 @@ export default Mixin.create({
       }
     },
 
+    checkNode(obj, suppress_event) {
+      if(!this.get("checkboxOptions.tie_selected")){
+        let treeObject = this.get("treeObject");
+        if (!isNone(treeObject)) {
+          treeObject.jstree(true).check_node(obj, suppress_event);
+        }
+      }
+    },
+
+    uncheckNode(obj, suppress_event) {
+      if(!this.get("checkboxOptions.tie_selected")){
+        let treeObject = this.get("treeObject");
+        if (!isNone(treeObject)) {
+          treeObject.jstree(true).uncheck_node(obj, suppress_event);
+        }
+      }
+    },
+
     selectNode(obj, suppress_event) {
       let treeObject = this.get("treeObject");
       if (!isNone(treeObject)) {
