@@ -363,6 +363,44 @@ export default Component.extend(InboundActions, EmberJstreeActions, {
     });
 
     /*
+          Event: select_node.jstree
+          Action: eventDidDisableNode
+          triggered when an node is selected
+        */
+    treeObject.on("disable_node.jstree", (event, data) => {
+      next(this, function() {
+        if (this.get("isDestroyed") || this.get("isDestroying")) {
+          return;
+        }
+        this.callAction(
+          "eventDidDisableNode",
+          data.node,
+          data.selected,
+          data.event
+        );
+      });
+    });
+
+    /*
+          Event: deselect_node.jstree
+          Action: eventDidEnableNode
+          triggered when an node is deselected
+        */
+    treeObject.on("enable_node.jstree", (event, data) => {
+      next(this, function() {
+        if (this.get("isDestroyed") || this.get("isDestroying")) {
+          return;
+        }
+        this.callAction(
+          "eventDidEnableNode",
+          data.node,
+          data.selected,
+          data.event
+        );
+      });
+    });
+
+    /*
           Event: changed.jstree
           Action: jstreeDidChange
           triggered when selection changes
