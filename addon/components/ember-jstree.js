@@ -124,6 +124,11 @@ export default Component.extend(InboundActions, EmberJstreeActions, {
       configObject["core"]["themes"] = themes;
     }
 
+    let doubleClickToggle = this.get("doubleClickToggle");
+    if (isPresent(doubleClickToggle) && typeOf(doubleClickToggle) === "boolean") {
+      configObject["core"]["dblclick_toggle"] = doubleClickToggle;
+    }
+
     let pluginsArray = this.get("plugins");
     if (isPresent(pluginsArray)) {
       pluginsArray = pluginsArray.replace(/ /g, "").split(",");
