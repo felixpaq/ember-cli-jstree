@@ -23,6 +23,7 @@ export default Component.extend(InboundActions, EmberJstreeActions, {
   themes: A(),
   checkCallback: true,
   multiple: true,
+  force_text: true,
   worker: true,
 
   // Refresh configuration variables
@@ -116,6 +117,7 @@ export default Component.extend(InboundActions, EmberJstreeActions, {
       data: this.get("data"),
       check_callback: this.get("checkCallback"),
       multiple: this.get("multiple"),
+      force_text: this.get("force_text"),
       worker: this.get("worker")
     };
 
